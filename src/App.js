@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-
+const key = process.env.REACT_APP_API_KEY;
 function App() {
   const [news, setNews] = useState([]);
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ function App() {
     async function getNews() {
       try {
         const res = await fetch(
-          "https://newsapi.org/v2/top-headlines?country=us&apiKey=a73c46879e5a49d2ad08a3d7f292d061"
+          `https://newsapi.org/v2/top-headlines?country=us&apiKey=${key}`
         );
         if (!res.ok) {
           throw new Error("Failed to fetch news");
